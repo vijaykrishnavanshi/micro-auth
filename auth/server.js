@@ -35,7 +35,7 @@ app.use((error, req, res, next) => {
 
 // Here you set the PORT and IP of the server
 const port = process.env.PORT || 8001;
-const ip = process.env.IP || "127.0.0.1";
+const ip = process.env.IP || "0.0.0.0";
 
 app.listen(port, ip, function(error) {
   if (error) {
