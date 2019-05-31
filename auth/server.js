@@ -7,12 +7,12 @@ const logger = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-// const routes = require("./api/routes");
+const routes = require("./routes");
 
 // Express App
 const app = express();
 // Setup DB Connection
-// require("./db");
+require("./db");
 
 // Use default logger for now
 app.use(logger("dev"));
@@ -27,10 +27,13 @@ app.get("/ping", function(req, res) {
   res.end();
 });
 
+// Integrate routes
+app.use('/v1', routes);
+
 // error handler
 app.use((error, req, res, next) => {
-    console.log(error);
-    return res.json({});
+  console.log(error);
+  return res.json({});
 });
 
 // Here you set the PORT and IP of the server
