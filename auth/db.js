@@ -9,6 +9,7 @@ const dbURI = process.env.MONGOURI || "mongodb://localhost/micro-auth";
 // Create the database connection
 mongoose.connect(
   dbURI,
+  { useNewUrlParser: true },
   err => {
     if (err) {
       console.log("DB Error: ", err);
