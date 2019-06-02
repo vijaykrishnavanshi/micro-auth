@@ -3,10 +3,7 @@ const router = express.Router();
 
 router.route("/auth")
     .get((req, res) => {
-        res.setHeader("Content-Type", "text/html");
-        const loginForm = `<!DOCTYPE html> <html><body> Hello </body></html>`;
-        res.write(loginForm);
-        return res.end();
+        return res.sendFile(__dirname + '/public/index.html');
     })
     .post((req, res) => {
         console.log('req.query: ', req.query);
