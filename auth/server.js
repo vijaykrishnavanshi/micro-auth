@@ -29,6 +29,7 @@ app.get("/ping", function(req, res) {
 
 // Integrate routes
 app.use('/v1', routes);
+app.use('/public', express.static('public'));
 
 // error handler
 app.use((error, req, res, next) => {
