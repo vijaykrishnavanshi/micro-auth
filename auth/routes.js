@@ -6,8 +6,8 @@ router.route("/auth")
         return res.sendFile(__dirname + '/public/index.html');
     })
     .post((req, res) => {
-        console.log('req.query: ', req.query);
-        return res.json(req.query);
+        console.log('req.body: ', req.body);
+        return res.json(req.body);
     });
 
 module.exports = router;
