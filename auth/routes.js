@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const router = express.Router();
 
@@ -7,7 +10,7 @@ router.route("/auth")
     })
     .post((req, res) => {
         console.log('req.body: ', req.body);
-        return res.json(req.body);
+        return res.redirect(`${process.env.TRAVEL_SERVICE_URL}/confirm?token=${req.body.username}`);
     });
 
 module.exports = router;
